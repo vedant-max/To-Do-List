@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import org.kodein.di.Copy
+import com.example.to_dolist.data.Entities.ListItem
 import java.util.concurrent.locks.Lock
 
-@Database(entities = [ListItem::class], version = 1)
+@Database(
+    entities = [ListItem::class]
+    , version = 1
+)
 abstract class ListDatabase : RoomDatabase() {
 
     abstract fun getListDao() : ListDao
@@ -15,9 +18,9 @@ abstract class ListDatabase : RoomDatabase() {
     companion object{
         @Volatile
         private var instance: ListDatabase ?= null
-
+        private val Lock = Any()
         operator fun invoke(context: Context) = instance
-            ?: synchronized(Any()){
+            ?: synchronized(Lock){
                 instance?: createDatabase(context).also { instance = it}
             }
 

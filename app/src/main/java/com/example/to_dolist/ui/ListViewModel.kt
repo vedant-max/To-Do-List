@@ -1,7 +1,7 @@
 package com.example.to_dolist.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.to_dolist.data.ListItem
+import com.example.to_dolist.data.Entities.ListItem
 import com.example.to_dolist.repositories.ListRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

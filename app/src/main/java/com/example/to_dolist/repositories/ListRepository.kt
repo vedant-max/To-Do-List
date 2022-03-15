@@ -1,7 +1,7 @@
 package com.example.to_dolist.repositories
 
 import com.example.to_dolist.data.ListDatabase
-import com.example.to_dolist.data.ListItem
+import com.example.to_dolist.data.Entities.ListItem
 
 class ListRepository(private var db : ListDatabase) {
 
